@@ -4,22 +4,22 @@ pipeline{
         stage("Clean Reports"){
             steps{
                 echo "========Cleaning Workspace Stage Started========"
-                bat 'rmdir /s /q test-reports'
+                sh 'rmdir /s /q test-reports'
                 echo "========Cleaning Workspace Stage Finished========"
             }
             }
         stage("Build Stage"){
             steps{
                 echo "========Build Stage Started========"
-                bat 'pip install -r requirements.txt'
-                bat 'pyinstaller --onefile app.py'
+                sh 'pip install -r requirements.txt'
+                sh 'pyinstaller --onefile app.py'
                 echo "========Build Stage Finished========"
             }
             }
         stage("Testing Stage"){
             steps{
                 echo "========Testing Stage Started========"
-                bat 'python test.py'
+                sh 'python test.py'
                 echo "========Testing Stage Finished========"
             }
             }
@@ -33,7 +33,7 @@ pipeline{
              
                     [$class: 'TextParameterDefinition', defaultValue: 'password', description: 'Artifactory Password', name: 'password']])
              
-                    bat 'jfrog rt c artifactory-demo --url=http://20.239.48.149:8081/artifactory --user=admin --P@ssw0rd@123='+userInput
+                    sh 'jfrog rt c artifactory-demo --url=http://20.239.48.149:8081/artifactory --user=admin --P@ssw0rd@123='+userInput
              
                     echo '********* Configure Artifactory Finished **********'
                     }
@@ -50,7 +50,7 @@ pipeline{
                 echo '********* Deploy Stage Started **********'
                 timeout(time : 1, unit : 'MINUTES')
                 {
-                bat 'python app.py'
+                sh 'python app.py'
                 }
                 echo '********* Deploy Stage Finished **********'
                 }
@@ -65,8 +65,8 @@ pipeline{
                     if(currentBuild.currentResult=='SUCCESS')
                 {
                     echo '********* Uploading to Artifactory is Started **********'
-                    /*bat 'jfrog rt u "dist/*.exe" generic-local'*/
-                    bat 'Powershell.exe -executionpolicy remotesigned -File build_script.ps1'
+                    /*sh 'jfrog rt u "dist/*.exe" generic-local'*/
+                    sh 'Powershell.exe -executionpolicy remotesigned -File build_script.ps1'
                     echo '********* Uploading Finished **********'
                 }
                     }
