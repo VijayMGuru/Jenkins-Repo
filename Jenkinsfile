@@ -33,7 +33,7 @@ pipeline{
              
                     [$class: 'TextParameterDefinition', defaultValue: 'password', description: 'Artifactory Password', name: 'password']])
              
-                    bat 'jfrog rt c artifactory-demo --url=http://20.239.48.149:8081/artifactory --user=admin --password='+userInput
+                    bat 'jfrog rt c artifactory-demo --url=http://20.239.48.149:8081/artifactory --user=admin --P@ssw0rd@123='+userInput
              
                     echo '********* Configure Artifactory Finished **********'
                     }
