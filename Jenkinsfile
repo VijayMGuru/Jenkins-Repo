@@ -4,7 +4,7 @@ pipeline{
         stage("Clean Reports"){
             steps{
                 echo "========Cleaning Workspace Stage Started========"
-                sh 'rmdir -rf test-reports'
+                sh 'rmdir test-reports'
                 echo "========Cleaning Workspace Stage Finished========"
             }
             }
