@@ -11,7 +11,7 @@ pipeline{
         stage("Build Stage"){
             steps{
                 echo "========Build Stage Started========"
-                sh 'sudo apt install requirements.txt'
+                sh 'pip install -r requirements.txt'
                 sh 'pyinstaller --onefile app.py'
                 echo "========Build Stage Finished========"
             }
