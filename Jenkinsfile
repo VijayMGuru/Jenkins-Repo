@@ -31,7 +31,7 @@ pipeline{
                     def userInput = input(
                     id: 'userInput', message: 'Enter password for Artifactory', parameters: [
              
-                    [$class: 'TextParameterDefinition', defaultValue: 'password', description: 'Artifactory Password', name: 'password']])
+                    [$class: 'TextParameterDefinition', defaultValue: 'P@ssw0rd@123', description: 'Artifactory Password', name: 'password']])
              
                     sh 'jfrog config add artifactory-demo --url=http://20.239.48.149:8081/artifactory --user=admin --password='+userInput
              
