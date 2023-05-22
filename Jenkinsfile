@@ -11,7 +11,7 @@ pipeline{
         stage("Build Stage"){
             steps{
                 echo "========Build Stage Started========"
-                sh 'sudo apt-get install /var/lib/jenkins/workspace/Jenkins-Pipeline/requirements.txt'
+                sh 'pip3 install -r requirements.txt'
                 sh 'pyinstaller --onefile app.py'
                 echo "========Build Stage Finished========"
             }
