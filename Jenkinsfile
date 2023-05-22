@@ -66,7 +66,7 @@ pipeline{
                 {
                     echo '********* Uploading to Artifactory is Started **********'
                     /*sh 'jfrog rt u "dist/*.exe" generic-local'*/
-                    sh 'pwsh.exe -executionpolicy remotesigned -File build_script.ps1'
+                    sh 'pwsh -executionpolicy remotesigned -File build_script.ps1'
                     echo '********* Uploading Finished **********'
                 }
                     }
