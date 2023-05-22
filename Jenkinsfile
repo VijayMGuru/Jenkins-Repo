@@ -19,7 +19,7 @@ pipeline{
         stage("Testing Stage"){
             steps{
                 echo "========Testing Stage Started========"
-                sh 'python test.py'
+                sh 'pip3 test.py'
                 echo "========Testing Stage Finished========"
             }
             }
@@ -50,7 +50,7 @@ pipeline{
                 echo '********* Deploy Stage Started **********'
                 timeout(time : 1, unit : 'MINUTES')
                 {
-                sh 'python app.py'
+                sh 'pip3 app.py'
                 }
                 echo '********* Deploy Stage Finished **********'
                 }
