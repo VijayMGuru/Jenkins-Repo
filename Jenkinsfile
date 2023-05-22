@@ -59,7 +59,7 @@ pipeline{
     post{
         always{
                 echo "we came to an end"
-                archiveArtifacts artifacts: 'dist/*.exe', fingerprint: true
+                archiveArtifacts artifacts: 'dist/**', fingerprint: true
                 junit 'test-reports/*.xml'
                 script{
                     if(currentBuild.currentResult=='SUCCESS')
