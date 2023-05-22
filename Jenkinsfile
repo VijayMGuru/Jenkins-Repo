@@ -50,7 +50,7 @@ pipeline{
                 echo '********* Deploy Stage Started **********'
                 timeout(time : 1, unit : 'MINUTES')
                 {
-                sh 'pip3 app.py'
+                sh 'pyinstaller --onefile app.py'
                 }
                 echo '********* Deploy Stage Finished **********'
                 }
