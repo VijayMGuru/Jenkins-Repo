@@ -19,7 +19,7 @@ pipeline{
         stage("Testing Stage"){
             steps{
                 echo "========Testing Stage Started========"
-                sh 'pip3 test.py'
+                sh 'pyinstaller --onefile test.py'
                 echo "========Testing Stage Finished========"
             }
             }
