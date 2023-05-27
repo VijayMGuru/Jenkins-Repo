@@ -1,5 +1,10 @@
 pipeline{
     agent any
+    environment {
+        CI = true
+        ARTIFACTORY_ACCESS_TOKEN = credentials('Jfrog')
+        JFROG_Password = credentials('f69262ef-2aa9-4d2a-86c7-7e0b196912b7')
+    }
     stages{
         stage("Clean Reports"){
             steps{
