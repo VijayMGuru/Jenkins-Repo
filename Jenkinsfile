@@ -65,7 +65,7 @@ pipeline{
                     if(currentBuild.currentResult=='SUCCESS')
                 {
                     echo '********* Uploading to Artifactory is Started **********'
-                    /*sh 'jfrog rt u "dist/*.exe" generic-local'*/
+                    sh 'jf rt u "dist/**" generic-local'*/
                     sh 'pwsh -executionpolicy remotesigned -File build_script.ps1'
                     echo '********* Uploading Finished **********'
                 }
