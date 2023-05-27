@@ -33,7 +33,7 @@ pipeline{
              
                     [$class: 'TextParameterDefinition', defaultValue: 'P@ssw0rd@123', description: 'Artifactory Password', name: 'password']]) */
              
-                    sh 'jf config add artifactory-demo --url=http://104.208.74.220/:8081/artifactory --access-token $(ARTIFACTORY_ACCESS_TOKEN)'
+                    sh 'jf config add artifactory-demo --url=http://104.208.74.220:8082/ui --access-token $(ARTIFACTORY_ACCESS_TOKEN)'
              
                     echo '********* Configure Artifactory Finished **********'
                     }
